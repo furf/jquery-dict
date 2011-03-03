@@ -1,10 +1,10 @@
 // basic dictionary
 
 $.dict('es', {
-  'hello, $1.':   'hola, $1.',
-  'goodbye, $1.': 'adios, $1.',
-  'ride the bus':  'viajar en el autobús',
-  '$1 has \\$1.00.': '$1 tiene \\$1.00.'
+  'hello, $1.':                   'hola, $1.',
+  'goodbye, $1.':                 'adios, $1.',
+  'ride the bus':                 'viajar en el autobús',
+  '$1 has \\$1.00.':              '$1 tiene \\$1.00.'
 });
 
 var _ = $.dict('es');
@@ -19,7 +19,7 @@ _('$1 has \\$1.00.', 'Pedro'),    // "Pedro tiene $1.00."
 // with locale
 
 $.dict('es-DR', {
-  'ride the bus':  'viajar en la guagua'
+  'ride the bus':                 'viajar en la guagua'
 });
 
 var _ = $.dict('es-DR');
@@ -34,7 +34,7 @@ _('$1 has \\$1.00.', 'Pedro'),    // "Pedro tiene $1.00."
 // with namespace
 
 $.dict('es', 'scoreboard', {
-  'scoreboard':  'marcador'
+  'scoreboard':                   'marcador'
 });
 
 var _ = $.dict('es', 'scoreboard');
@@ -57,7 +57,7 @@ _('$1 has \\$1.00.', 'Pedro'),    // "Pedro tiene $1.00."
 // with deeper namespace
 
 $.dict('es', 'scoreboard.homepage', {
-  'scoreboard':  'marcador de la página principal',
+  'scoreboard':                   'marcador de la página principal',
 });
 
 var _ = $.dict('es-DR', 'scoreboard.homepage');
