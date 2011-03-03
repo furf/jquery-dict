@@ -1,0 +1,69 @@
+// basic dictionary
+
+$.dict('es', {
+  'hello, $1.':   'hola, $1.',
+  'goodbye, $1.': 'adios, $1.',
+  'ride the bus':  'viajar en el autobús',
+  '$1 has \\$1.00.': '$1 tiene \\$1.00.'
+});
+
+var _ = $.dict('es');
+
+_('hello, $1.', 'world'),         // "hola, world."
+_('goodbye, $1.', 'cruel world'), // "adios, cruel world."
+_('ride the bus'),                // "viajar en el autobús"
+_('scoreboard'),                  // "scoreboard"
+_('$1 has \\$1.00.', 'Pedro'),    // "Pedro tiene $1.00."
+
+
+// with locale
+
+$.dict('es-DR', {
+  'ride the bus':  'viajar en la guagua'
+});
+
+var _ = $.dict('es-DR');
+
+_('hello, $1.', 'world'),         // "hola, world."
+_('goodbye, $1.', 'cruel world'), // "adios, cruel world."
+_('ride the bus'),                // "viajar en la guagua"
+_('scoreboard'),                  // "scoreboard"
+_('$1 has \\$1.00.', 'Pedro'),    // "Pedro tiene $1.00."
+
+
+// with namespace
+
+$.dict('es', 'scoreboard', {
+  'scoreboard':  'marcador'
+});
+
+var _ = $.dict('es', 'scoreboard');
+
+_('hello, $1.', 'world'),         // "hola, world."
+_('goodbye, $1.', 'cruel world'), // "adios, cruel world."
+_('ride the bus'),                // "viajar en el autobús"
+_('scoreboard'),                  // "marcador"
+_('$1 has \\$1.00.', 'Pedro'),    // "Pedro tiene $1.00."
+
+var _ = $.dict('es-DR', 'scoreboard');
+
+_('hello, $1.', 'world'),         // "hola, world."
+_('goodbye, $1.', 'cruel world'), // "adios, cruel world."
+_('ride the bus'),                // "viajar en la guagua"
+_('scoreboard'),                  // "marcador"
+_('$1 has \\$1.00.', 'Pedro'),    // "Pedro tiene $1.00."
+
+
+// with deeper namespace
+
+$.dict('es', 'scoreboard.homepage', {
+  'scoreboard':  'marcador de la página principal',
+});
+
+var _ = $.dict('es-DR', 'scoreboard.homepage');
+
+_('hello, $1.', 'world'),         // "hola, world."
+_('goodbye, $1.', 'cruel world'), // "adios, cruel world."
+_('ride the bus'),                // "viajar en la guagua"
+_('scoreboard'),                  // "marcador de la página principal"
+_('$1 has \\$1.00.', 'Pedro'),    // "Pedro tiene $1.00."
