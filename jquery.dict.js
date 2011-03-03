@@ -26,15 +26,13 @@
 
       d = [{}];
       
-      dict = dicts[language];
-      dict && d.push(dict);
-      
+      (dict = dicts[language]) && d.push(dict);
       locale && (dict = dicts[code]) && d.push(dict);
       
       if (namespace) {
 
         ns = namespace.split('.');
-        namespace  = '';
+        namespace = '';
         
         while (ns.length) {
 
@@ -50,7 +48,7 @@
       return function _ (key) {
 
         var args = arguments,
-            str = d[key] || key;
+            str  = d[key] || key;
 
        return ~str.indexOf('$') ?
           str.replace(reToken, function (m, s, d) {
