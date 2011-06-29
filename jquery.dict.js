@@ -1,3 +1,9 @@
+/*!
+ * jQuery.dict
+ * An i18n dictionary plugin for jQuery by David Furfero <http://furf.com/>
+ * http://github.com/furf/jquery-dict
+ * MIT Licensed
+ */
 (function ($) {
 
   var reToken = /(\\)?\$(\d+)/g,
@@ -57,6 +63,18 @@
 
       };
     }
+  };
+
+  $.fn.dict = function (code, namespace) {
+    var _ = $.dict(code, namespace);
+    return this.each(function () {
+      var elem  = $(this),
+          title = elem.attr('title'),
+          alt   = elem.attr('alt');
+      elem.text(_(elem.text()));
+      title && elem.attr('title', _(title));
+      alt && elem.attr('alt', _(alt));
+    });
   };
 
 })(jQuery);
