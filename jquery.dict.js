@@ -49,7 +49,7 @@
         }
       }
 
-      d = $.extend.apply(null, d);
+      d = $.extend.apply($, d);
 
       return function _ (key) {
 
